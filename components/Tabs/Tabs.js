@@ -29,22 +29,18 @@ class TabLink {
       // else if `all` is false, only select the cards with matching this.tabData values
       // this.cards = ;
 
-      this.cards = document.querySelectorAll(`.card[data-tab="${this.data}"]`)
+      this.cards = document.querySelectorAll(`.card[data-tab="${this.tabData}"]`)
         console.log(`USER has selected an 'INDIVIDUAL' category`)
         console.log(this.cards)
     }
 
     // Map over the newly converted NodeList we just created in our if statement above. 
-    // Convert each this.cards element into a new instance of the TabCard class. Pass in 
-    // a card object to the TabCard class. 
-    // this.cards = Array.from(this.cards).map();
-
-      this.cards = Array.from(this.cards)
-        console.log(this.cards)
-
-    // this.cards.forEach( card => new TabCard(this.cards))
-
-      this.cards.forEach( card => new TabCard(this.cards))
+    // Convert each this.cards element into a new instance of the TabCard class. 
+    // Pass in a card object to the TabCard class. 
+    // this.cards = Array.from(this.cards).map()
+    
+      this.cards = Array.from(this.cards).map( card => new TabCard(card))
+      console.log(this.cards)
 
     // Add a click event that invokes this.selectTab
     // this.tabElement.addEventListener();
@@ -73,6 +69,7 @@ class TabLink {
     // const cards = ;
 
       const cards = document.querySelectorAll('.card')
+        console.log(cards)
 
     // Iterate through the NodeList setting the display style each one to 'none'
     // cards.forEach()
@@ -89,7 +86,9 @@ class TabLink {
     // Notice we are looping through the this.cards array and invoking selectCard() 
     // from the TabCard class. Just un-comment the code and study what is happening here.
 
-      this.cards.forEach(card => card.selectCard());
+    console.log(this.cards)
+
+    this.cards.forEach(card => card.selectCard());
   }
 }
 
@@ -119,5 +118,5 @@ class TabCard {
 */
 // let tabs = document.querySelectorAll('.tab')
 //   console.log(tabs)
-let tabs = document.querySelectorAll('.tab').forEach( link => new TabLink(link))
+let tabs = document.querySelectorAll('.tab').forEach( tab => new TabLink(tab))
   
